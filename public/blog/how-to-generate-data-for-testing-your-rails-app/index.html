@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>How to Generate Fake Data for Testing Your Rails App | Adrienne Franke</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="rails , testing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How to Generate Fake Data for Testing Your Rails App" />
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:site" content="https://twitter.com/adriennefranke" />
+  <meta name="twitter:creator" content="https://twitter.com/adriennefranke" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": ""
+      },
+      "articleSection" : "blog",
+      "name" : "How to Generate Fake Data for Testing Your Rails App",
+      "headline" : "How to Generate Fake Data for Testing Your Rails App",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2022",
+      "datePublished": "2022-02-20 11:31:33 -0600 CST",
+      "dateModified" : "2022-02-20 11:31:33 -0600 CST",
+      "url" : "\/blog\/how-to-generate-data-for-testing-your-rails-app\/",
+      "wordCount" : "274",
+      "keywords" : ["rails", "testing", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/blog/about-this-blog/">about</a>
+      </li>
+    
+      <li>
+        <a  href="/blog/resume/adriennefrankeresume.pdf">resume</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">How to Generate Fake Data for Testing Your Rails App</h1>
+            <time datetime="2022-02-20 11:31:33 -0600 CST" class="post__date">Feb 20 2022</time> 
+          </header>
+          <article class="post__content">
+              
+<p>For a while, I created my own test data, manually, in every single test. It was tedious and took a bit of creative energy because I also tried to make the test data Stars Wars themed 😅. Eventually I came across some data that was a bit too tedious for me to create on my own and I decided that it was time to start generating it. And it was actually incredibly easy to implement, and I&rsquo;ll never manually create test data again! It makes your code simpler and more concise.</p>
+<ol>
+<li>
+<p>Install the gems you&rsquo;ll need: <code>factory-bot-rails</code> and <code>faker</code>. Add <code>gem factory-bot-rails</code> and <code>gem 'faker'</code> to your Gemfile under the test and development sections and run <code>bundle install</code>.</p>
+</li>
+<li>
+<p>Create a &ldquo;factory&rdquo; using FactoryBot and Faker. A factory tells FactoryBot how to make test data and Faker actually makes the fake data. You can put factories anywhere in your app, but I put them in <code>spec/factories.rb</code></p>
+<pre><code> # spec/factories.rb
+ FactoryBot.define do
+     factory :user do
+         username { Faker::Internet.username }
+         password { Faker::Internet.password }
+     end
+ end
+</code></pre>
+</li>
+</ol>
+<p><a href="https://github.com/faker-ruby/faker/">Faker</a> has excellent <a href="https://github.com/faker-ruby/faker/#generators">generators</a> to generate test data for addresses, names, numbers, and even more fun stuff like Cosmere generators.</p>
+<ol start="3">
+<li>
+<p>Add a helper method to <code>spec/rails_helper.rb</code> to simplify your tests:</p>
+<pre><code> # spec/rails_helper.rb
+ RSpec.configure do |config|
+ ...
+     config.include FactoryBot::Syntax::Methods
+ ...
+ end
+</code></pre>
+</li>
+<li>
+<p>Now you can use your factories to make test data in your tests!</p>
+<pre><code> # spec/system/sign_in_spec.rb
+ require 'rails_helper'
+ RSpec.describe 'Sign in', type: :system do
+     scenario 'valid inputs' do
+         user = create(:user) # This is the line that uses FactoryBot and Faker!
+         visit '/'
+         click_link 'Sign In'
+         fill_in 'Email', with: user.email
+         fill_in 'Password', with: user.password
+         click_on 'Sign In!'
+         expect(page).to have_content('Signed in successfully.')
+     end
+ end
+</code></pre>
+</li>
+</ol>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="/tags/rails/">rails</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="/tags/testing/">testing</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="/blog/how-to-use-amazon-ses-with-rails/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">How to Use Amazon SES With Rails</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/adriennefranke"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/adriennefranke"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Email"
+         href="mailto:%3cfuzzy.luck0530@fastmail.com%3e"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/email.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© {2020-2022}</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

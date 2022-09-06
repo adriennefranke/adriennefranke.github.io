@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Adrienne Franke</title>
+    <link>/blog/</link>
+    <description>Recent content in Blogs on Adrienne Franke</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {2020-2022}</copyright>
+    <lastBuildDate>Sun, 20 Feb 2022 11:31:33 -0600</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Generate Fake Data for Testing Your Rails App</title>
+      <link>/blog/how-to-generate-data-for-testing-your-rails-app/</link>
+      <pubDate>Sun, 20 Feb 2022 11:31:33 -0600</pubDate>
+      
+      <guid>/blog/how-to-generate-data-for-testing-your-rails-app/</guid>
+      <description>For a while, I created my own test data, manually, in every single test. It was tedious and took a bit of creative energy because I also tried to make the test data Stars Wars themed 😅. Eventually I came across some data that was a bit too tedious for me to create on my own and I decided that it was time to start generating it. And it was actually incredibly easy to implement, and I&amp;rsquo;ll never manually create test data again!</description>
+    </item>
+    
+    <item>
+      <title>How to Use Amazon SES With Rails</title>
+      <link>/blog/how-to-use-amazon-ses-with-rails/</link>
+      <pubDate>Sat, 19 Feb 2022 13:03:50 -0600</pubDate>
+      
+      <guid>/blog/how-to-use-amazon-ses-with-rails/</guid>
+      <description>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I&amp;rsquo;ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a &amp;lsquo;noreply&amp;rsquo; email address because you cannot reply to them. They&amp;rsquo;re very useful and should definitely be a component of your app.</description>
+    </item>
+    
+    <item>
+      <title>Using Poetry to Manage Your Python Environments &#43; Projects</title>
+      <link>/blog/using-poetry-to-manage-python-environments/</link>
+      <pubDate>Sun, 18 Oct 2020 14:22:12 -0500</pubDate>
+      
+      <guid>/blog/using-poetry-to-manage-python-environments/</guid>
+      <description>I started using Poetry after my coworker recommended it when we started to build nppes. It&amp;rsquo;s completely changed the way I develop with Python.
+Install + Use Poetry   Install Poetry.
+ &amp;gt; curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -    Check to see what version Poetry is.
+ &amp;gt; poetry --version    Start a new Python project with Poetry   Head to the parent directory where you want the new project to live.</description>
+    </item>
+    
+    <item>
+      <title>How to Set up a Daily Recurring Task with Django-Q</title>
+      <link>/blog/how-to-set-up-recurring-task-with-django-q/</link>
+      <pubDate>Sun, 18 Oct 2020 12:27:32 -0500</pubDate>
+      
+      <guid>/blog/how-to-set-up-recurring-task-with-django-q/</guid>
+      <description>Have you ever needed to do something over and over and over again with your data in Django? Perhaps you wanted to summarize your data. Maybe you needed to send some reminder emails. Regardless, as you get deeper and deeper into building apps with Django, you&amp;rsquo;ll probably need to start automating some tasks.
+When I first looked into doing this, Celery was nearly always the top result. I added it to my Django project and tried to get it up and running.</description>
+    </item>
+    
+    <item>
+      <title>About Me &#43; This Blog</title>
+      <link>/blog/about-this-blog/</link>
+      <pubDate>Sat, 17 Oct 2020 19:33:06 -0500</pubDate>
+      
+      <guid>/blog/about-this-blog/</guid>
+      <description>About Me I&amp;rsquo;m a software engineer and analytics leader with extensive experience in web development, automation, data science, and analytics. I&amp;rsquo;m energized by tough technical challenges and aspire to build happy, well functioning teams. I enjoy trying out new technologies, mentoring others, and speaking at tech conferences.
+About This Blog This is a space for me, and anyone else who might find the writing useful. I compile information that I know I&amp;rsquo;ll need to find again.</description>
+    </item>
+    
+  </channel>
+</rss>

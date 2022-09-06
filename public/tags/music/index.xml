@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>music on Adrienne Franke</title>
+    <link>https://example.org/tags/music/</link>
+    <description>Recent content in music on Adrienne Franke</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {2020}</copyright>
+    <lastBuildDate>Tue, 20 Oct 2020 19:23:28 -0500</lastBuildDate><atom:link href="https://example.org/tags/music/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>It&#39;s Hard to Commit to Creative Pursuits</title>
+      <link>https://example.org/blog/hard-to-commit-to-creative-pursuits/</link>
+      <pubDate>Tue, 20 Oct 2020 19:23:28 -0500</pubDate>
+      
+      <guid>https://example.org/blog/hard-to-commit-to-creative-pursuits/</guid>
+      <description>I love music. It&amp;rsquo;s been a big part of my life since I was little. First, I begrudgingly learned piano. Then I moved on to the guitar. Eventually I learned the bass, the drums, the upright bass (classical), and a couple more instruments. Long story short, I have been playing music for nearly two decades and I know a whole band&amp;rsquo;s worth of instruments decently well.
+It&amp;rsquo;s easier than ever to record, produce, and release music as an independent musician nowadays.</description>
+    </item>
+    
+  </channel>
+</rss>

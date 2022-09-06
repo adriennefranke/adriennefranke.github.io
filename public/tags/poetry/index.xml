@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>poetry on Adrienne Franke</title>
+    <link>/tags/poetry/</link>
+    <description>Recent content in poetry on Adrienne Franke</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {2020-2022}</copyright>
+    <lastBuildDate>Sun, 18 Oct 2020 14:22:12 -0500</lastBuildDate><atom:link href="/tags/poetry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Poetry to Manage Your Python Environments &#43; Projects</title>
+      <link>/blog/using-poetry-to-manage-python-environments/</link>
+      <pubDate>Sun, 18 Oct 2020 14:22:12 -0500</pubDate>
+      
+      <guid>/blog/using-poetry-to-manage-python-environments/</guid>
+      <description>I started using Poetry after my coworker recommended it when we started to build nppes. It&amp;rsquo;s completely changed the way I develop with Python.
+Install + Use Poetry   Install Poetry.
+ &amp;gt; curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -    Check to see what version Poetry is.
+ &amp;gt; poetry --version    Start a new Python project with Poetry   Head to the parent directory where you want the new project to live.</description>
+    </item>
+    
+  </channel>
+</rss>

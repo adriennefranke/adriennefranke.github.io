@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Set Up Confirmation Emails With Devise in Rails | Adrienne Franke</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Set Up Confirmation Emails With Devise in Rails" />
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:site" content="https://twitter.com/adriennefranke" />
+  <meta name="twitter:creator" content="https://twitter.com/adriennefranke" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": ""
+      },
+      "articleSection" : "blog",
+      "name" : "Set Up Confirmation Emails With Devise in Rails",
+      "headline" : "Set Up Confirmation Emails With Devise in Rails",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2021",
+      "datePublished": "2021-11-28 15:34:21 -0600 CST",
+      "dateModified" : "2021-11-28 15:34:21 -0600 CST",
+      "url" : "\/blog\/set-up-confirmation-emails-with-devise-in-rails\/",
+      "wordCount" : "179",
+      "keywords" : ["Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/about-this-blog">about</a>
+      </li>
+    
+      <li>
+        <a  href="https://google.com">resume</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Set Up Confirmation Emails With Devise in Rails</h1>
+            <time datetime="2021-11-28 15:34:21 -0600 CST" class="post__date">Nov 28 2021</time> 
+          </header>
+          <article class="post__content">
+              
+<p>This assumes that you already have a Devise User model set up in Rails.</p>
+<ol>
+<li>
+<p>Create a migration that will add the Confirmable columns to your User table.</p>
+<pre><code> rails generate migration AddConfirmableToUsers
+</code></pre>
+</li>
+<li>
+<p>Edit the migration to add the new columns:</p>
+<pre><code> class AddConfirmableAndLockableToUsers &lt; ActiveRecord::Migration[6.1]
+   def change
+       ## Confirmable
+       add_column :users, :confirmation_token, :string
+       add_column :users, :confirmed_at, :datetime
+       add_column :users, :confirmation_sent_at, :datetime
+       add_column :users, :unconfirmed_email, :string # Only if using reconfirmable
+   end
+ end 
+</code></pre>
+</li>
+<li>
+<p>Run:</p>
+<pre><code> rake db:migrate
+</code></pre>
+</li>
+<li>
+<p>Go to app/models/user.rb and add this:</p>
+<pre><code> devise :confirmable
+</code></pre>
+</li>
+<li>
+<p>Edit config/routes.rb to include confirmation routes.</p>
+<pre><code> devise_for :users, controllers: {
+     sessions: 'users/sessions',
+     passwords: 'users/passwords',
+     registrations: 'users/registrations',
+     confirmations: 'users/confirmations'
+ }
+</code></pre>
+</li>
+<li>
+<p>Next, edit config/environments/development.rb. Add this:</p>
+<pre><code> # Emails
+ config.action_mailer.perform_deliveries = true
+ config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+ config.action_mailer.delivery_method = :smtp
+ config.action_mailer.smtp_settings = {
+     user_name:      ENV['GMAIL_USERNAME'],
+     password:       ENV['GMAIL_PASSWORD'],
+     domain:         ENV['GMAIL_HOST'],
+     address:       'smtp.gmail.com',
+     port:          '587',
+     authentication: :plain,
+     enable_starttls_auto: true
+ }
+</code></pre>
+</li>
+<li>
+<p>After that, edit config/initializers/devise.rb and add this line:</p>
+<pre><code> config.mailer_sender = 'your-email-address@gmail.com'
+</code></pre>
+</li>
+<li>
+<p>Next we need to configure environment variables. Install the dotenv gem and add your environment varialbes to a .env file in the base of your repo.</p>
+</li>
+</ol>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="/tags/rails/">rails</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="/blog/about-this-blog/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">About This Blog</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="/blog/how-to-use-amazon-ses-with-rails/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >How to Use Amazon SES With Rails</a>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/adriennefranke"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/adriennefranke"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/github.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© {2020-2022}</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>
