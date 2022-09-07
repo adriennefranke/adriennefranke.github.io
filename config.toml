@@ -7,6 +7,8 @@ languageCode = "en-us"
 # baseURL = "https://adriennefranke.com/"
 copyright = "© {2020-2022}"
 
+publishDir = "docs"
+
 # Add your Disqus shortname here.
 # disqusShortname = ""
 
