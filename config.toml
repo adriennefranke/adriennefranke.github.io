@@ -79,4 +79,4 @@ publishDir = "docs"
 [[menu.main]]
   identifier = "resume"
   name = "resume"
-  url = "/blog/resume/adriennefrankeresume.pdf"
+  url = "/blog/resume/adriennefrankeresume202304.pdf"
