@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>testing on Adrienne Franke</title>
-    <link>/tags/testing/</link>
+    <link>https://adriennefranke.com/tags/testing/</link>
     <description>Recent content in testing on Adrienne Franke</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {2020-2022}</copyright>
-    <lastBuildDate>Sun, 20 Feb 2022 11:31:33 -0600</lastBuildDate><atom:link href="/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© {2020-2023}</copyright>
+    <lastBuildDate>Sun, 20 Feb 2022 11:31:33 -0600</lastBuildDate><atom:link href="https://adriennefranke.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Generate Fake Data for Testing Your Rails App</title>
-      <link>/blog/how-to-generate-data-for-testing-your-rails-app/</link>
+      <link>https://adriennefranke.com/blog/how-to-generate-data-for-testing-your-rails-app/</link>
       <pubDate>Sun, 20 Feb 2022 11:31:33 -0600</pubDate>
       
-      <guid>/blog/how-to-generate-data-for-testing-your-rails-app/</guid>
+      <guid>https://adriennefranke.com/blog/how-to-generate-data-for-testing-your-rails-app/</guid>
       <description>For a while, I created my own test data, manually, in every single test. It was tedious and took a bit of creative energy because I also tried to make the test data Stars Wars themed 😅. Eventually I came across some data that was a bit too tedious for me to create on my own and I decided that it was time to start generating it. And it was actually incredibly easy to implement, and I&amp;rsquo;ll never manually create test data again!</description>
     </item>
     

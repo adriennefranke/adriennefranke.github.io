@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rails on Adrienne Franke</title>
-    <link>/tags/rails/</link>
+    <link>https://adriennefranke.com/tags/rails/</link>
     <description>Recent content in rails on Adrienne Franke</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {2020-2022}</copyright>
-    <lastBuildDate>Sun, 20 Feb 2022 11:31:33 -0600</lastBuildDate><atom:link href="/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© {2020-2023}</copyright>
+    <lastBuildDate>Sun, 20 Feb 2022 11:31:33 -0600</lastBuildDate><atom:link href="https://adriennefranke.com/tags/rails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Generate Fake Data for Testing Your Rails App</title>
-      <link>/blog/how-to-generate-data-for-testing-your-rails-app/</link>
+      <link>https://adriennefranke.com/blog/how-to-generate-data-for-testing-your-rails-app/</link>
       <pubDate>Sun, 20 Feb 2022 11:31:33 -0600</pubDate>
       
-      <guid>/blog/how-to-generate-data-for-testing-your-rails-app/</guid>
+      <guid>https://adriennefranke.com/blog/how-to-generate-data-for-testing-your-rails-app/</guid>
       <description>For a while, I created my own test data, manually, in every single test. It was tedious and took a bit of creative energy because I also tried to make the test data Stars Wars themed 😅. Eventually I came across some data that was a bit too tedious for me to create on my own and I decided that it was time to start generating it. And it was actually incredibly easy to implement, and I&amp;rsquo;ll never manually create test data again!</description>
     </item>
     
     <item>
       <title>How to Use Amazon SES With Rails</title>
-      <link>/blog/how-to-use-amazon-ses-with-rails/</link>
+      <link>https://adriennefranke.com/blog/how-to-use-amazon-ses-with-rails/</link>
       <pubDate>Sat, 19 Feb 2022 13:03:50 -0600</pubDate>
       
-      <guid>/blog/how-to-use-amazon-ses-with-rails/</guid>
+      <guid>https://adriennefranke.com/blog/how-to-use-amazon-ses-with-rails/</guid>
       <description>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I&amp;rsquo;ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a &amp;lsquo;noreply&amp;rsquo; email address because you cannot reply to them. They&amp;rsquo;re very useful and should definitely be a component of your app.</description>
     </item>
     

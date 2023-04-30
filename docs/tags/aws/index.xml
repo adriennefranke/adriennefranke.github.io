@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws on Adrienne Franke</title>
-    <link>/tags/aws/</link>
+    <link>https://adriennefranke.com/tags/aws/</link>
     <description>Recent content in aws on Adrienne Franke</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {2020-2022}</copyright>
-    <lastBuildDate>Sat, 29 Apr 2023 14:42:51 -0500</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© {2020-2023}</copyright>
+    <lastBuildDate>Sat, 29 Apr 2023 14:42:51 -0500</lastBuildDate><atom:link href="https://adriennefranke.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Use Amazon SES With Django</title>
-      <link>/blog/how-to-use-amazon-ses-with-django/</link>
+      <link>https://adriennefranke.com/blog/how-to-use-amazon-ses-with-django/</link>
       <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
       
-      <guid>/blog/how-to-use-amazon-ses-with-django/</guid>
+      <guid>https://adriennefranke.com/blog/how-to-use-amazon-ses-with-django/</guid>
       <description>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I’ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a ‘noreply’ email address because you cannot reply to them. They’re very useful and should definitely be a component of your app.</description>
     </item>
     
     <item>
       <title>How to Use Amazon SES With Rails</title>
-      <link>/blog/how-to-use-amazon-ses-with-rails/</link>
+      <link>https://adriennefranke.com/blog/how-to-use-amazon-ses-with-rails/</link>
       <pubDate>Sat, 19 Feb 2022 13:03:50 -0600</pubDate>
       
-      <guid>/blog/how-to-use-amazon-ses-with-rails/</guid>
+      <guid>https://adriennefranke.com/blog/how-to-use-amazon-ses-with-rails/</guid>
       <description>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I&amp;rsquo;ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a &amp;lsquo;noreply&amp;rsquo; email address because you cannot reply to them. They&amp;rsquo;re very useful and should definitely be a component of your app.</description>
     </item>
     

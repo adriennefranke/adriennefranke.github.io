@@ -4,8 +4,8 @@ theme = "hugo-theme-codex"
 # Override these settings with your own
 title = "Adrienne Franke"
 languageCode = "en-us"
-# baseURL = "https://adriennefranke.com/"
-copyright = "© {2020-2022}"
+baseURL = "https://adriennefranke.com/"
+copyright = "© {2020-2023}"
 
 publishDir = "docs"
 

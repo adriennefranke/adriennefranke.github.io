@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Adrienne Franke</title>
-    <link>/categories/</link>
+    <link>https://adriennefranke.com/categories/</link>
     <description>Recent content in Categories on Adrienne Franke</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {2020-2022}</copyright><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© {2020-2023}</copyright><atom:link href="https://adriennefranke.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
