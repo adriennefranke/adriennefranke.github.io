@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>How to Use Amazon SES With Django | Adrienne Franke</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="How use Amazon SES with Django to send transactional emails">
+  <meta name="keywords" content="django , ses , aws">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How to Use Amazon SES With Django" />
+  <meta name="twitter:description" content="How use Amazon SES with Django to send transactional emails"/>
+  <meta name="twitter:site" content="https://twitter.com/adriennefranke" />
+  <meta name="twitter:creator" content="https://twitter.com/adriennefranke" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": ""
+      },
+      "articleSection" : "blog",
+      "name" : "How to Use Amazon SES With Django",
+      "headline" : "How to Use Amazon SES With Django",
+      "description" : "How use Amazon SES with Django to send transactional emails",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2023",
+      "datePublished": "2023-04-29 14:42:51 -0500 CDT",
+      "dateModified" : "2023-04-29 14:42:51 -0500 CDT",
+      "url" : "\/blog\/how-to-use-amazon-ses-with-django\/",
+      "wordCount" : "476",
+      "keywords" : ["django", "ses", "aws", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/blog/about-this-blog/">about</a>
+      </li>
+    
+      <li>
+        <a  href="/blog/resume/adriennefrankeresume.pdf">resume</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">How to Use Amazon SES With Django</h1>
+            <time datetime="2023-04-29 14:42:51 -0500 CDT" class="post__date">Apr 29 2023</time> 
+          </header>
+          <article class="post__content">
+              
+<p><img src="../../static/ses_django.jpg" alt=""></p>
+<p>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I’ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a ‘noreply’ email address because you cannot reply to them. They’re very useful and should definitely be a component of your app.</p>
+<h2 id="how-to-use-amazon-ses-to-send-transactional-emails-for-your-django-app">How to Use Amazon SES to send transactional emails for your Django app<a class="anchor" href="#how-to-use-amazon-ses-to-send-transactional-emails-for-your-django-app">#</a></h2>
+<ol>
+<li>
+<p>First you will need to create an identity and verify the domain that you&rsquo;d like to send the emails from. Amazon has some documentation for doing this <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#verify-domain-procedure">here</a>. Sometimes it can take a few days for Amazon to verify the domain.</p>
+</li>
+<li>
+<p>Once your domain has been verified, you&rsquo;ll have to generate SMTP credentials that will connect to your Amazon SES domain. These credentials are set by region so make sure you&rsquo;re creating these in the same region as your verified domain. I apologize for directing you somewhere else again, but Amazon has a short guide <a href="https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html">here</a>. Amazon will generate SMTP credentials, so make sure you copy those because you&rsquo;ll need them for the next step!</p>
+</li>
+<li>
+<p>Store your SMTP username and password wherever you store your environment variables. You will need to access these in your Django code shortly.</p>
+</li>
+<li>
+<p>Navigate to your <code>settings.py</code> file so we can add the proper SMTP settings. You can add this to the end of the file.</p>
+</li>
+</ol>
+<pre><code># settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+EMAIL_HOST_USER = os.environ.get(&quot;SMTP_USERNAME&quot;) # Access your environment variable however you need
+EMAIL_HOST_PASSWORD = os.environ.get(&quot;SMTP_PASSWORD&quot;)
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+</code></pre>
+<ol start="5">
+<li>Now it&rsquo;s time to actually configure your Django app to use these credentials. First, identify where to store the email template code (these will be HTML and TXT files). I like to keep mine in a <code>templates/emails</code> folder. I also like to make a general <code>emails</code> folder to store email configuration and logic such as subject, from_email, and to_emails. This will pull in the templates from <code>templates/emails</code>. Here&rsquo;s an example structure:</li>
+</ol>
+<pre><code>.
+├── app_1
+│   └── migrations
+│   ├── __init.py__
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py
+├── app_2
+│   └── migrations
+│   ├── __init.py__
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py
+├── emails
+│   ├── email_logic.py
+├── templates
+│   ├── email_template_1.html
+│   ├── email_template_1.text
+</code></pre>
+<ol start="6">
+<li>Let&rsquo;s send an email. When we call the following function with an email address, it will send an email to that address. 💌</li>
+</ol>
+<pre><code># email_logic.py
+
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+
+def send_email(recipient_email: str):
+    message = EmailMultiAlternatives(
+        subject=&quot;This is an Email Subject&quot;,
+        body=render_to_string(&quot;email_template_1.txt&quot;),
+        from_email=&quot;noreply@yourdomain.com&quot;,
+        to=[recipient_email]
+    )
+    html_content = render_to_string(&quot;email_template_1.html&quot;)
+    message.attach_alternative(html_content, &quot;text/html&quot;)
+    message.send()
+</code></pre>
+<p>If you use Rails, you may be interested in <a href="https://www.adriennefranke.com/blog/how-to-use-amazon-ses-with-rails/">my other post</a>.</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="/tags/django/">django</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="/tags/ses/">ses</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="/tags/aws/">aws</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="/blog/how-to-generate-data-for-testing-your-rails-app/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">How to Generate Fake Data for Testing Your Rails App</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/adriennefranke"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/adriennefranke"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Email"
+         href="mailto:%3cfuzzy.luck0530@fastmail.com%3e"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('svg/email.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© {2020-2022}</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {2020-2022}</copyright>
-    <lastBuildDate>Sun, 20 Feb 2022 11:31:33 -0600</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2023 14:42:51 -0500</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>/tags/aws/</link>
+      <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>django</title>
+      <link>/tags/django/</link>
+      <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
+      
+      <guid>/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ses</title>
+      <link>/tags/ses/</link>
+      <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
+      
+      <guid>/tags/ses/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>rails</title>
       <link>/tags/rails/</link>
@@ -23,15 +50,6 @@
       <pubDate>Sun, 20 Feb 2022 11:31:33 -0600</pubDate>
       
       <guid>/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>/tags/aws/</link>
-      <pubDate>Sat, 19 Feb 2022 13:03:50 -0600</pubDate>
-      
-      <guid>/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -59,15 +77,6 @@
       <pubDate>Sun, 18 Oct 2020 12:27:32 -0500</pubDate>
       
       <guid>/tags/automation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>django</title>
-      <link>/tags/django/</link>
-      <pubDate>Sun, 18 Oct 2020 12:27:32 -0500</pubDate>
-      
-      <guid>/tags/django/</guid>
       <description></description>
     </item>
     
