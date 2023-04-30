@@ -10,6 +10,8 @@ toc: false
 draft: false
 ---
 
+![SES + Django](../images/ses_django.jpg)
+
 Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I’ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a ‘noreply’ email address because you cannot reply to them. They’re very useful and should definitely be a component of your app.
 
 ## How to Use Amazon SES to send transactional emails for your Django app

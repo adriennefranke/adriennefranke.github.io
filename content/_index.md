@@ -1,5 +1,5 @@
 ---
 heading: "Adrienne Franke"
-subheading: "Mostly technical."
+subheading: "Mostly tech, but sometimes other things."
 # handle: "mostly tech but sometimes other things"
 ---
