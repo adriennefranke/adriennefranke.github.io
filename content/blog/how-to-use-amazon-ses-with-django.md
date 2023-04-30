@@ -3,6 +3,7 @@ title: "How to Use Amazon SES With Django"
 date: 2023-04-29T14:42:51-05:00
 slug: "how-to-use-amazon-ses-with-django"
 description: "How use Amazon SES with Django to send transactional emails"
+image: "ses_django.jpg"
 keywords: [django, ses, aws]
 tags: [django, ses, aws]
 math: false

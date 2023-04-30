@@ -12,18 +12,15 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  {{- with $.Params.images -}}
-  {{- range first 6 . }}<meta property="og:image" content="{{ . | absURL }}" />{{ end -}}
-  {{- else -}}
-  {{- $images := $.Resources.ByType "image" -}}
-  {{- $featured := $images.GetMatch "*feature*" -}}
-  {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
-  {{- with $featured -}}
-  <meta property="og:image" content="{{ $featured.Permalink }}"/>
-  {{- else -}}
-  {{- with $.Site.Params.images }}<meta property="og:image" content="{{ index . 0 | absURL }}"/>{{ end -}}
-  {{- end -}}
-  {{- end -}}
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  {{ if .Params.image }}
+    <meta property="og:image" content="{{.Site.BaseURL}}/blog/images/{{.Params.image}}"/>
+  {{ else }}
+  {{ end }}
 
   <!-- Twitter -->
   {{ if isset .Site.Params "twitter" }}
