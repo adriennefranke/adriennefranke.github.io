@@ -4,81 +4,66 @@
     <title>Tags on Adrienne Franke</title>
     <link>https://adriennefranke.com/tags/</link>
     <description>Recent content in Tags on Adrienne Franke</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© {2020-2023}</copyright>
-    <lastBuildDate>Sat, 29 Apr 2023 14:42:51 -0500</lastBuildDate><atom:link href="https://adriennefranke.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2023 14:42:51 -0500</lastBuildDate>
+    <atom:link href="https://adriennefranke.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>aws</title>
+      <title>Aws</title>
       <link>https://adriennefranke.com/tags/aws/</link>
       <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
-      
       <guid>https://adriennefranke.com/tags/aws/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>django</title>
+      <title>Django</title>
       <link>https://adriennefranke.com/tags/django/</link>
       <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
-      
       <guid>https://adriennefranke.com/tags/django/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ses</title>
+      <title>Ses</title>
       <link>https://adriennefranke.com/tags/ses/</link>
       <pubDate>Sat, 29 Apr 2023 14:42:51 -0500</pubDate>
-      
       <guid>https://adriennefranke.com/tags/ses/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rails</title>
+      <title>Rails</title>
       <link>https://adriennefranke.com/tags/rails/</link>
       <pubDate>Sun, 20 Feb 2022 11:31:33 -0600</pubDate>
-      
       <guid>https://adriennefranke.com/tags/rails/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testing</title>
+      <title>Testing</title>
       <link>https://adriennefranke.com/tags/testing/</link>
       <pubDate>Sun, 20 Feb 2022 11:31:33 -0600</pubDate>
-      
       <guid>https://adriennefranke.com/tags/testing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>poetry</title>
+      <title>Poetry</title>
       <link>https://adriennefranke.com/tags/poetry/</link>
       <pubDate>Sun, 18 Oct 2020 14:22:12 -0500</pubDate>
-      
       <guid>https://adriennefranke.com/tags/poetry/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://adriennefranke.com/tags/python/</link>
       <pubDate>Sun, 18 Oct 2020 14:22:12 -0500</pubDate>
-      
       <guid>https://adriennefranke.com/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>automation</title>
+      <title>Automation</title>
       <link>https://adriennefranke.com/tags/automation/</link>
       <pubDate>Sun, 18 Oct 2020 12:27:32 -0500</pubDate>
-      
       <guid>https://adriennefranke.com/tags/automation/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

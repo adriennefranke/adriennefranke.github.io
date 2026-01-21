@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
-  <meta name="description" content="How to use Poetry to manage Python environments and projects">
+  <meta name="description" content="">
   <meta name="keywords" content="python , poetry , python environments">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -14,7 +14,29 @@
 
   
   <meta property="og:title" content="Using Poetry to Manage Your Python Environments &#43; Projects" />
-  <meta property="og:description" content="How to use Poetry to manage Python environments and projects" />
+  <meta property="og:description" content="I started using Poetry after my coworker recommended it when we started to build nppes. It&rsquo;s completely changed the way I develop with Python.
+Install &#43; Use Poetry
+
+
+Install Poetry.
+&gt; curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+
+
+Check to see what version Poetry is.
+&gt; poetry --version
+
+
+
+Start a new Python project with Poetry
+
+
+Head to the parent directory where you want the new project to live.
+&gt; poetry new project-name
+
+
+
+This will create a directory called project-name with everything you need! The pyproject.toml file has everything in it for your project&rsquo;s dependencies." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://adriennefranke.com/blog/using-poetry-to-manage-python-environments/" />
   
@@ -24,7 +46,7 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Using Poetry to Manage Your Python Environments &#43; Projects" />
-  <meta name="twitter:description" content="How to use Poetry to manage Python environments and projects"/>
+  <meta name="twitter:description" content=""/>
   <meta name="twitter:site" content="https://twitter.com/adriennefranke" />
   <meta name="twitter:creator" content="https://twitter.com/adriennefranke" />
   
@@ -42,7 +64,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.65a7f1e9fec9f80b2cd34fb01bc8e9ef6f807e138ede2c5db33d4b612054b353.css" integrity="sha256-Zafx6f7J&#43;Ass00&#43;wG8jp72&#43;AfhOO3ixdsz1LYSBUs1M="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -64,7 +86,7 @@
       "articleSection" : "blog",
       "name" : "Using Poetry to Manage Your Python Environments \u002b Projects",
       "headline" : "Using Poetry to Manage Your Python Environments \u002b Projects",
-      "description" : "How to use Poetry to manage Python environments and projects",
+      "description" : "",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -135,12 +157,12 @@
 <ol>
 <li>
 <p>Install Poetry.</p>
-<pre><code> &gt; curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+<pre><code>&gt; curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 </code></pre>
 </li>
 <li>
 <p>Check to see what version Poetry is.</p>
-<pre><code> &gt; poetry --version
+<pre><code>&gt; poetry --version
 </code></pre>
 </li>
 </ol>
@@ -148,7 +170,7 @@
 <ol>
 <li>
 <p>Head to the parent directory where you want the new project to live.</p>
-<pre><code> &gt; poetry new project-name
+<pre><code>&gt; poetry new project-name
 </code></pre>
 </li>
 </ol>
@@ -156,18 +178,19 @@
 <ol start="2">
 <li>
 <p>Add some dependencies.</p>
-<pre><code> &gt; poetry add pandas
+<pre><code>&gt; poetry add pandas
 </code></pre>
 <p>This will add them to <code>pyproject.toml</code> so you don&rsquo;t need to do that manually. It will also add and install all of the requirements for the package you just added.</p>
 </li>
 <li>
 <p>Remove a dependency.</p>
-<pre><code> &gt; poetry remove pandas
+<pre><code>&gt; poetry remove pandas
 </code></pre>
 </li>
 <li>
 <p>Use Poetry to run Python. (This is like activating your virtual environment.) In your terminal, type <code>poetry run</code> before the <code>python</code> command.</p>
-<pre><code> &gt; poetry run python python-script.py</code></pre>
+<pre><code>&gt; poetry run python python-script.py
+</code></pre>
 </li>
 </ol>
 
@@ -250,7 +273,7 @@
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

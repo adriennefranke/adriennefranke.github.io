@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
-  <meta name="description" content="How to set up a recurring task with Django-Q">
+  <meta name="description" content="">
   <meta name="keywords" content="django , python , django-q">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -14,7 +14,8 @@
 
   
   <meta property="og:title" content="How to Set up a Daily Recurring Task with Django-Q" />
-  <meta property="og:description" content="How to set up a recurring task with Django-Q" />
+  <meta property="og:description" content="Have you ever needed to do something over and over and over again with your data in Django? Perhaps you wanted to summarize your data. Maybe you needed to send some reminder emails. Regardless, as you get deeper and deeper into building apps with Django, you&rsquo;ll probably need to start automating some tasks.
+When I first looked into doing this, Celery was nearly always the top result. I added it to my Django project and tried to get it up and running. It was a bit harder and more complex than I was envisioning." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://adriennefranke.com/blog/how-to-set-up-recurring-task-with-django-q/" />
   
@@ -24,7 +25,7 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="How to Set up a Daily Recurring Task with Django-Q" />
-  <meta name="twitter:description" content="How to set up a recurring task with Django-Q"/>
+  <meta name="twitter:description" content=""/>
   <meta name="twitter:site" content="https://twitter.com/adriennefranke" />
   <meta name="twitter:creator" content="https://twitter.com/adriennefranke" />
   
@@ -42,7 +43,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.65a7f1e9fec9f80b2cd34fb01bc8e9ef6f807e138ede2c5db33d4b612054b353.css" integrity="sha256-Zafx6f7J&#43;Ass00&#43;wG8jp72&#43;AfhOO3ixdsz1LYSBUs1M="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -64,7 +65,7 @@
       "articleSection" : "blog",
       "name" : "How to Set up a Daily Recurring Task with Django-Q",
       "headline" : "How to Set up a Daily Recurring Task with Django-Q",
-      "description" : "How to set up a recurring task with Django-Q",
+      "description" : "",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -137,58 +138,58 @@
 <ol>
 <li>
 <p>Install Django-Q.</p>
-<pre><code> &gt; pip install django-q
+<pre><code>&gt; pip install django-q
 </code></pre>
 </li>
 <li>
 <p>In your <code>settings.py</code> file, add django-q to your INSTALLED_APPS.</p>
-<pre><code> # settings.py
+<pre><code># settings.py
 
- # Add Django-Q to installed apps
- INSTALLED_APPS = [
- ...,
- 'django_q',
- ]
+# Add Django-Q to installed apps
+INSTALLED_APPS = [
+...,
+'django_q',
+]
 </code></pre>
 </li>
 <li>
 <p>Django-Q needs a message broker. Because this is a simple daily task, we are just going to use the Django ORM. Configure this in your <code>settings.py</code>.</p>
-<pre><code> # settings.py
+<pre><code># settings.py
 
- # Configure the Q Cluster with the Django ORM
- Q_CLUSTER = {
-     &quot;name&quot;: &quot;DjangORM&quot;,
-     &quot;workers&quot;: 4,
-     &quot;timeout&quot;: 90,
-     &quot;retry&quot;: 120,
-     &quot;queue_limit&quot;: 50,
-     &quot;bulk&quot;: 10,
-     &quot;orm&quot;: &quot;default&quot;,
- }
+# Configure the Q Cluster with the Django ORM
+Q_CLUSTER = {
+    &quot;name&quot;: &quot;DjangORM&quot;,
+    &quot;workers&quot;: 4,
+    &quot;timeout&quot;: 90,
+    &quot;retry&quot;: 120,
+    &quot;queue_limit&quot;: 50,
+    &quot;bulk&quot;: 10,
+    &quot;orm&quot;: &quot;default&quot;,
+}
 </code></pre>
 <p>For reference, here&rsquo;s what &ldquo;default&rdquo; is in my example project.</p>
-<pre><code> # settings.py
+<pre><code># settings.py
 
- DATABASES = {
-     &quot;default&quot;: {
-         &quot;ENGINE&quot;: &quot;django.db.backends.sqlite3&quot;,
-         &quot;NAME&quot;: os.path.join(BASE_DIR, &quot;db.sqlite3&quot;),
-     }
- }
+DATABASES = {
+    &quot;default&quot;: {
+        &quot;ENGINE&quot;: &quot;django.db.backends.sqlite3&quot;,
+        &quot;NAME&quot;: os.path.join(BASE_DIR, &quot;db.sqlite3&quot;),
+    }
+}
 </code></pre>
 <p>A message broker is a way to send messages between senders and receivers. Basically, it handles the &ldquo;messages&rdquo; of your scheduled tasks. Using the Django ORM as a broker is okay for simple tasks, but if you need to do something more complex consider something like Redis.</p>
 </li>
 <li>
 <p>Django-Q needs to create the necessary tables in your database so you&rsquo;ll need to run these migrations.</p>
-<pre><code> &gt; python manage.py migrate
+<pre><code>&gt; python manage.py migrate
 </code></pre>
 </li>
 <li>
 <p>To run the tasks, fire up the qcluster.</p>
-<pre><code> &gt; python manage.py qcluster
+<pre><code>&gt; python manage.py qcluster
 </code></pre>
 <p>You&rsquo;ll see some gibberish like&hellip;</p>
-<pre><code> &gt; &quot;Q Cluster carpet-lactose-beer-illinois starting&quot;
+<pre><code>&gt; &quot;Q Cluster carpet-lactose-beer-illinois starting&quot;
 </code></pre>
 <p>You&rsquo;re ready to go! 🔥</p>
 </li>
@@ -201,13 +202,13 @@
 </li>
 <li>
 <p>Create the function. This is what Django-Q will run.</p>
-<pre><code> # tasks.py
+<pre><code># tasks.py
 
- def count_daily_new_users():
-     '''
-     Counts the new users that signed up on the previous day
-     '''
-     return User.objects.filter(date_joined__date=timezone.now().date() - timezone.timedelta(1)).count()
+def count_daily_new_users():
+    '''
+    Counts the new users that signed up on the previous day
+    '''
+    return User.objects.filter(date_joined__date=timezone.now().date() - timezone.timedelta(1)).count()
 </code></pre>
 </li>
 </ol>
@@ -218,19 +219,19 @@
 </li>
 <li>
 <p>In order for your scheduled task to run, start your qcluster.</p>
-<pre><code> &gt; python manage.py qcluster
+<pre><code>&gt; python manage.py qcluster
 </code></pre>
 </li>
 <li>
 <p>Your Django server must be running as well.</p>
-<pre><code> &gt; python manage.py runserver
+<pre><code>&gt; python manage.py runserver
 </code></pre>
 </li>
 <li>
 <p>When your task is running and has finished you will see more gibberish that basically says it created a task, is processing the task, and then has processed the task once it&rsquo;s finished.</p>
-<pre><code> &gt; 18:35:53 [Q] INFO Process-1 created a task from schedul [1]
- &gt; 18:35:53 [Q] INFO Process-1:1 processing [helium-failed-artist-july]
- &gt; 18:35:53 [Q] INFO Processed [helium-failed-artist-july]
+<pre><code>&gt; 18:35:53 [Q] INFO Process-1 created a task from schedul [1]
+&gt; 18:35:53 [Q] INFO Process-1:1 processing [helium-failed-artist-july]
+&gt; 18:35:53 [Q] INFO Processed [helium-failed-artist-july]
 </code></pre>
 </li>
 <li>
@@ -320,7 +321,7 @@
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
-  <meta name="description" content="How to use Amazon SES to send transactional emails with Rails">
+  <meta name="description" content="">
   <meta name="keywords" content="rails , aws">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -14,7 +14,7 @@
 
   
   <meta property="og:title" content="How to Use Amazon SES With Rails" />
-  <meta property="og:description" content="How to use Amazon SES to send transactional emails with Rails" />
+  <meta property="og:description" content="Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I&rsquo;ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a &rsquo;noreply&rsquo; email address because you cannot reply to them. They&rsquo;re very useful and should definitely be a component of your app." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://adriennefranke.com/blog/how-to-use-amazon-ses-with-rails/" />
   
@@ -24,7 +24,7 @@
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="How to Use Amazon SES With Rails" />
-  <meta name="twitter:description" content="How to use Amazon SES to send transactional emails with Rails"/>
+  <meta name="twitter:description" content=""/>
   <meta name="twitter:site" content="https://twitter.com/adriennefranke" />
   <meta name="twitter:creator" content="https://twitter.com/adriennefranke" />
   
@@ -42,7 +42,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.65a7f1e9fec9f80b2cd34fb01bc8e9ef6f807e138ede2c5db33d4b612054b353.css" integrity="sha256-Zafx6f7J&#43;Ass00&#43;wG8jp72&#43;AfhOO3ixdsz1LYSBUs1M="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -64,7 +64,7 @@
       "articleSection" : "blog",
       "name" : "How to Use Amazon SES With Rails",
       "headline" : "How to Use Amazon SES With Rails",
-      "description" : "How to use Amazon SES to send transactional emails with Rails",
+      "description" : "",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -130,7 +130,7 @@
           </header>
           <article class="post__content">
               
-<p>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I&rsquo;ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a &lsquo;noreply&rsquo; email address because you cannot reply to them. They&rsquo;re very useful and should definitely be a component of your app.</p>
+<p>Amazon SES (Simple Email Service) is an AWS product that enables you to send marketing or transactional emails to your users. I&rsquo;ve used it to send transactional emails, which are emails that are sent to a user following a transaction or an action, like signing up or requesting a password reset. Typically they come from a &rsquo;noreply&rsquo; email address because you cannot reply to them. They&rsquo;re very useful and should definitely be a component of your app.</p>
 <h2 id="how-to-use-amazon-ses-to-send-transactional-emails-for-your-rails-app">How to Use Amazon SES to send transactional emails for your Rails app<a class="anchor" href="#how-to-use-amazon-ses-to-send-transactional-emails-for-your-rails-app">#</a></h2>
 <ol>
 <li>
@@ -141,67 +141,67 @@
 </li>
 <li>
 <p>I recommend using Rails multi environment credentials to store these credentials. It&rsquo;s super easy to set up and the credentials are encrypted. In your app directory&hellip;</p>
-<pre><code> $ rails credentials:edit --environment development
+<pre><code>$ rails credentials:edit --environment development
 </code></pre>
 </li>
 </ol>
 <p>This will open up a file in your text editor that will store your credentials for your <em>development</em> environment. So when you&rsquo;re running the app locally in development, it&rsquo;ll load these specific credentials without you needing to specify the environment either in the credentials folder or in your app&rsquo;s code itself. Pretty nifty!</p>
-<pre><code>    # Amazon SES
-    ses:
-        username: your-smtp-credential-username-from-step2
-        password: your-smtp-credential-password-from-step2
+<pre><code>	# Amazon SES
+	ses:
+		username: your-smtp-credential-username-from-step2
+		password: your-smtp-credential-password-from-step2
 </code></pre>
 <p>You&rsquo;ll then be able to use <code>Rails.application.credentials.ses.username</code> or <code>Rails.application.credentials.ses.password</code> throughout your app.</p>
 <ol start="4">
 <li>
 <p>Now we need to configure our Rails app to use these new credentials to send the transactional emails. Go to <code>config/environments/development.rb</code> and we&rsquo;ll add them there:</p>
-<pre><code> # config/environments/development.rb
- Rails.application.configure do
-     # Email
-     config.x.mail_from = %(YourAppName &lt;noreply@yourdomain.com&gt;)
-     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-     config.action_mailer.perform_caching = false
-     config.action_mailer.perform_deliveries = true
-     config.action_mailer.raise_delivery_errors = true
-     config.action_mailer.delivery_method = :smtp
-     config.action_mailer.smtp_settings = {
-     address: 'email-smtp.us-east-1.amazonaws.com',
-     port: 587,
-     authentication: 'login',
-     domain: 'yourdomain.com',
-     user_name: Rails.application.credentials.ses.username,
-     password: Rails.application.credentials.ses.password,
-     enable_starttls_auto: true,
-     }
- end
+<pre><code># config/environments/development.rb
+Rails.application.configure do
+	# Email
+	config.x.mail_from = %(YourAppName &lt;noreply@yourdomain.com&gt;)
+	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+	config.action_mailer.perform_caching = false
+	config.action_mailer.perform_deliveries = true
+	config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+	address: 'email-smtp.us-east-1.amazonaws.com',
+	port: 587,
+	authentication: 'login',
+	domain: 'yourdomain.com',
+	user_name: Rails.application.credentials.ses.username,
+	password: Rails.application.credentials.ses.password,
+	enable_starttls_auto: true,
+	}
+end
 </code></pre>
 </li>
 <li>
 <p>Now you&rsquo;re able to send transactional emails through your app! You&rsquo;ll want to make sure you do the same for your production environment by editing your production credentials:</p>
-<pre><code> $ rails credentials:edit --environment production
+<pre><code>$ rails credentials:edit --environment production
 </code></pre>
 </li>
 </ol>
 <p>And also by editing <code>config/environments/production.rb</code>:</p>
-<pre><code>    # config/environments/development.rb
-    Rails.application.configure do
-        # Email
-        config.x.mail_from = %(YourAppName &lt;noreply@yourdomain.com&gt;)
-        config.action_mailer.default_url_options = { host: 'https://yourdomain.com' }
-        config.action_mailer.perform_caching = false
-        config.action_mailer.perform_deliveries = true
-        config.action_mailer.raise_delivery_errors = true
-        config.action_mailer.delivery_method = :smtp
-        config.action_mailer.smtp_settings = {
-        address: 'email-smtp.us-east-1.amazonaws.com',
-        port: 587,
-        authentication: 'login',
-        domain: 'yourdomain.com',
-        user_name: Rails.application.credentials.ses.username,
-        password: Rails.application.credentials.ses.password,
-        enable_starttls_auto: true,
-        }
-    end
+<pre><code>	# config/environments/development.rb
+	Rails.application.configure do
+		# Email
+		config.x.mail_from = %(YourAppName &lt;noreply@yourdomain.com&gt;)
+		config.action_mailer.default_url_options = { host: 'https://yourdomain.com' }
+		config.action_mailer.perform_caching = false
+		config.action_mailer.perform_deliveries = true
+		config.action_mailer.raise_delivery_errors = true
+		config.action_mailer.delivery_method = :smtp
+		config.action_mailer.smtp_settings = {
+		address: 'email-smtp.us-east-1.amazonaws.com',
+		port: 587,
+		authentication: 'login',
+		domain: 'yourdomain.com',
+		user_name: Rails.application.credentials.ses.username,
+		password: Rails.application.credentials.ses.password,
+		enable_starttls_auto: true,
+		}
+	end
 </code></pre>
 
 
@@ -283,7 +283,7 @@
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

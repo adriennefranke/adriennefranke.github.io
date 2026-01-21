@@ -14,7 +14,7 @@
 
   
   <meta property="og:title" content="How to Generate Fake Data for Testing Your Rails App" />
-  <meta property="og:description" content="For a while, I created my own test data, manually, in every single test. It was tedious and took a bit of creative energy because I also tried to make the test data Stars Wars themed 😅. Eventually I came across some data that was a bit too tedious for me to create on my own and I decided that it was time to start generating it. And it was actually incredibly easy to implement, and I&rsquo;ll never manually create test data again!" />
+  <meta property="og:description" content="For a while, I created my own test data, manually, in every single test. It was tedious and took a bit of creative energy because I also tried to make the test data Stars Wars themed 😅. Eventually I came across some data that was a bit too tedious for me to create on my own and I decided that it was time to start generating it. And it was actually incredibly easy to implement, and I&rsquo;ll never manually create test data again! It makes your code simpler and more concise." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://adriennefranke.com/blog/how-to-generate-data-for-testing-your-rails-app/" />
   
@@ -42,7 +42,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.65a7f1e9fec9f80b2cd34fb01bc8e9ef6f807e138ede2c5db33d4b612054b353.css" integrity="sha256-Zafx6f7J&#43;Ass00&#43;wG8jp72&#43;AfhOO3ixdsz1LYSBUs1M="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -137,13 +137,13 @@
 </li>
 <li>
 <p>Create a &ldquo;factory&rdquo; using FactoryBot and Faker. A factory tells FactoryBot how to make test data and Faker actually makes the fake data. You can put factories anywhere in your app, but I put them in <code>spec/factories.rb</code></p>
-<pre><code> # spec/factories.rb
- FactoryBot.define do
-     factory :user do
-         username { Faker::Internet.username }
-         password { Faker::Internet.password }
-     end
- end
+<pre><code># spec/factories.rb
+FactoryBot.define do
+	factory :user do
+		username { Faker::Internet.username }
+		password { Faker::Internet.password }
+	end
+end
 </code></pre>
 </li>
 </ol>
@@ -151,29 +151,29 @@
 <ol start="3">
 <li>
 <p>Add a helper method to <code>spec/rails_helper.rb</code> to simplify your tests:</p>
-<pre><code> # spec/rails_helper.rb
- RSpec.configure do |config|
- ...
-     config.include FactoryBot::Syntax::Methods
- ...
- end
+<pre><code># spec/rails_helper.rb
+RSpec.configure do |config|
+...
+	config.include FactoryBot::Syntax::Methods
+...
+end
 </code></pre>
 </li>
 <li>
 <p>Now you can use your factories to make test data in your tests!</p>
-<pre><code> # spec/system/sign_in_spec.rb
- require 'rails_helper'
- RSpec.describe 'Sign in', type: :system do
-     scenario 'valid inputs' do
-         user = create(:user) # This is the line that uses FactoryBot and Faker!
-         visit '/'
-         click_link 'Sign In'
-         fill_in 'Email', with: user.email
-         fill_in 'Password', with: user.password
-         click_on 'Sign In!'
-         expect(page).to have_content('Signed in successfully.')
-     end
- end
+<pre><code># spec/system/sign_in_spec.rb
+require 'rails_helper'
+RSpec.describe 'Sign in', type: :system do
+    scenario 'valid inputs' do
+        user = create(:user) # This is the line that uses FactoryBot and Faker!
+        visit '/'
+        click_link 'Sign In'
+        fill_in 'Email', with: user.email
+        fill_in 'Password', with: user.password
+        click_on 'Sign In!'
+        expect(page).to have_content('Signed in successfully.')
+    end
+end
 </code></pre>
 </li>
 </ol>
@@ -257,7 +257,7 @@
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

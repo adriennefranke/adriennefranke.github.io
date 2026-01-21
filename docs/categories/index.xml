@@ -4,8 +4,9 @@
     <title>Categories on Adrienne Franke</title>
     <link>https://adriennefranke.com/categories/</link>
     <description>Recent content in Categories on Adrienne Franke</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>© {2020-2023}</copyright><atom:link href="https://adriennefranke.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© {2020-2023}</copyright>
+    <atom:link href="https://adriennefranke.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
