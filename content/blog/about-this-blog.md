@@ -1,7 +1,9 @@
 ---
 title: "About Me + This Blog"
-date: 2020-10-17T19:33:06-05:00
+# date: 2020-10-17T19:33:06-05:00
 draft: false
+build:
+  list: false
 ---
 
 ## About Me

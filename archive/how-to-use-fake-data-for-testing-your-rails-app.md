@@ -1,7 +1,7 @@
 ---
 title: "How to Generate Fake Data for Testing Your Rails App"
 date: 2022-02-20T11:31:33-06:00
-draft: false
+draft: true
 slug: "how-to-generate-data-for-testing-your-rails-app"
 keywords: [rails, testing]
 tags: [rails, testing]
