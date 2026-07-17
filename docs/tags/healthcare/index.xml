@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Healthcare on Adrienne Franke</title>
+    <link>http://localhost:1313/tags/healthcare/</link>
+    <description>Recent content in Healthcare on Adrienne Franke</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {2020-2023}</copyright>
+    <lastBuildDate>Tue, 21 Apr 2026 15:20:09 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/healthcare/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revolution Medicines and Daraxonrasib</title>
+      <link>http://localhost:1313/blog/revolution-medicines/</link>
+      <pubDate>Tue, 21 Apr 2026 15:20:09 -0500</pubDate>
+      <guid>http://localhost:1313/blog/revolution-medicines/</guid>
+      <description>&lt;p&gt;Some pretty incredible cancer drug news came out last week. &lt;a href=&#34;https://www.revmed.com/&#34;&gt;Revolution Medicines&lt;/a&gt; announced the results of their Phase 3 RASolute 302 clinical trial and their drug, daraxonrasib, demonstrated a &lt;strong&gt;median overall survival of 13.2 months versus 6.7 months for chemotherapy&lt;/strong&gt; for their stage 4 pancreatic cancer patients.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;ve not seen it, I urge you to listen to this &lt;a href=&#34;https://www.nytimes.com/2026/04/09/opinion/ben-sasse-death-pancreatic-cancer.html?unlocked_article_code=1.clA.J4vZ.llxoj6n-bGPF&amp;amp;smid=url-share&#34;&gt;fantastic NY Times podcast episode between Ross Douthat and Ben Sasse&lt;/a&gt;. Sasse, recently diagnosed with Stage 4 pancreatic cancer, saw his tumors shrink 75% due to the drug.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

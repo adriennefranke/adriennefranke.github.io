@@ -3,7 +3,7 @@ title: "Using Poetry to Manage Your Python Environments + Projects"
 date: 2020-10-18T14:22:12-05:00
 slug: "using-poetry-to-manage-python-environments"
 keywords: [python, poetry, python environments]
-draft: false
+draft: true
 tags: [poetry, python]
 math: false
 toc: false

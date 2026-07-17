@@ -13,3 +13,7 @@ Or, to preview drafts:
 > hugo new blog/your-post-name.md
 
 Edit the file and change draft to `true` when ready to publish
+
+### Build
+
+> hugo build

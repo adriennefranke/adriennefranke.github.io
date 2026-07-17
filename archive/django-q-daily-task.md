@@ -1,9 +1,9 @@
 ---
 title: "How to Set up a Daily Recurring Task with Django-Q"
-date: 2020-10-18T12:27:32-05:00
+# date: 2020-10-18T12:27:32-05:00
 slug: "how-to-set-up-recurring-task-with-django-q"
 keywords: [django, python, django-q]
-draft: false
+draft: true
 tags: [django, automation, python]
 math: false
 toc: false

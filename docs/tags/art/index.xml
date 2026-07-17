@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Art on Adrienne Franke</title>
+    <link>http://localhost:1313/tags/art/</link>
+    <description>Recent content in Art on Adrienne Franke</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {2020-2023}</copyright>
+    <lastBuildDate>Fri, 17 Jul 2026 13:45:04 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/art/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better Coloring Pages</title>
+      <link>http://localhost:1313/blog/better-coloring-pages/</link>
+      <pubDate>Fri, 17 Jul 2026 13:45:04 -0500</pubDate>
+      <guid>http://localhost:1313/blog/better-coloring-pages/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s say no to AI slop, especially when it comes to things our children experience. I will continue to add beautiful drawings and illustrations here as I find them.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.c82.net/naturalists-library/illustrations&#34;&gt;Over 1,300 hand drawn illustrations of birds, mammals, insects, and fish scanned directly from &lt;em&gt;The Naturalist&amp;rsquo;s Library&lt;/em&gt;&lt;/a&gt;. You&amp;rsquo;ll have to print these in black and white.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

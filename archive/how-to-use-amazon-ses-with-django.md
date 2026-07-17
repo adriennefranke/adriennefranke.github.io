@@ -7,7 +7,7 @@ keywords: [django, ses, aws]
 tags: [django, ses, aws]
 math: false
 toc: false
-draft: false
+draft: true
 ---
 
 ![SES + Django](../images/ses_django.jpg)

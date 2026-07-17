@@ -1,7 +1,7 @@
 ---
 title: "How to Use Amazon SES With Rails"
 date: 2022-02-19T13:03:50-06:00
-draft: false
+draft: true
 slug: "how-to-use-amazon-ses-with-rails"
 keywords: [rails, aws]
 tags: [rails, aws]
